@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "matrimonio-a4767",
+          "appId": "1:27019397436:android:29c03654cb936301fa3639",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "matrimonio-a4767",
+          "configurations": {
+            "android": "1:27019397436:android:29c03654cb936301fa3639",
+            "ios": "1:27019397436:ios:c88f29e53557218afa3639",
+            "macos": "1:27019397436:ios:c88f29e53557218afa3639",
+            "web": "1:27019397436:web:9aa637dd9568f431fa3639",
+            "windows": "1:27019397436:web:1e06a13b1aba295ffa3639"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
