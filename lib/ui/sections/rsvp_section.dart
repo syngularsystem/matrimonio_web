@@ -20,7 +20,7 @@ class _RsvpSectionState extends State<RsvpSection> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
 
-  bool? confirmedPresence;
+  bool confirmedPresence = true;
   String _attendance = 'sì'; // Valore default per i radio button
 
   List<String> companions = [];
@@ -73,7 +73,7 @@ class _RsvpSectionState extends State<RsvpSection> {
     await provider.submitRSVP(
       name: _nameController.text,
       email: _emailController.text,
-      presence: confirmedPresence ?? false,
+      presence: confirmedPresence,
       companions: companions,
       attendance: _attendance,
       languageCode: Localizations.localeOf(context).languageCode,
@@ -99,7 +99,7 @@ class _RsvpSectionState extends State<RsvpSection> {
     setState(() {
       _nameController.clear();
       _emailController.clear();
-      confirmedPresence = null;
+      confirmedPresence = false;
       companions.clear();
       for (var c in companionControllers) c.dispose();
       companionControllers.clear();

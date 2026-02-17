@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../sections/hero_section.dart';
-import '../sections/quote_section.dart';
-import '../sections/timeline_section.dart';
-import '../sections/locations_section.dart';
-import '../sections/dresscode_section.dart';
-import '../sections/gift_section.dart';
-import '../sections/rsvp_section.dart';
-import '../sections/footer_section.dart';
-import '../widgets/intro_overlay.dart';
+import 'package:matrimonio/ui/sections/hero_section.dart';
+import 'package:matrimonio/ui/sections/quote_section.dart';
+import 'package:matrimonio/ui/sections/timeline_section.dart';
+import 'package:matrimonio/ui/sections/locations_section.dart';
+import 'package:matrimonio/ui/sections/dresscode_section.dart';
+import 'package:matrimonio/ui/sections/gift_section.dart';
+import 'package:matrimonio/ui/sections/rsvp_section.dart';
+import 'package:matrimonio/ui/sections/footer_section.dart';
+import 'package:matrimonio/ui/widgets/intro_overlay.dart';
 // Importa gli altri widget necessari...
 
 class WeddingHomePage extends StatefulWidget {

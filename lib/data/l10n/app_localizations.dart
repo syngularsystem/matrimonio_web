@@ -125,8 +125,12 @@ class AppLocalizations {
   };
 
   static String tr(BuildContext context, String key) {
-    // Se il context non è ancora localizzato, fallback su 'it'
-    final locale = Localizations.localeOf(context).languageCode;
-    return _strings[locale]?[key] ?? key;
+    try {
+      final locale = Localizations.localeOf(context).languageCode;
+      return _strings[locale]?[key] ?? _strings['it']?[key] ?? key;
+    } catch (e) {
+      // Se crasha (perché il context non è pronto), restituisci la chiave o un default
+      return key;
+    }
   }
 }
