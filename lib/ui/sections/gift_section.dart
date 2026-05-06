@@ -51,7 +51,10 @@ class GiftSection extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
-            _buildGiftBox(Icons.account_balance, "IT75B0306903207100000071081"),
+            _buildGiftBox(
+              Icons.account_balance,
+              "IT75B0306903207100000071081 - Danny Ruggiero",
+            ),
             const SizedBox(height: 10),
             _buildGiftBox(Icons.payment, "paypal.me/DannyRuggiero1992"),
           ],

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, unused_element
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_web_plugins/url_strategy.dart'; // Aggiunto per path URL
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,10 +9,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'firebase_options.dart';
 import 'providers/locale_provider.dart';
 import 'providers/rsvp_provider.dart';
-import 'ui/view/home.dart';
+import 'providers/admin_controller.dart';
+import 'core/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy(); // Rimuove il '#' dagli URL sul web
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final localeProvider = LocaleProvider();
   await localeProvider.loadLocale();
@@ -20,6 +23,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider.value(value: localeProvider),
         ChangeNotifierProvider(create: (_) => RSVPProvider()),
+        ChangeNotifierProvider(create: (_) => AdminController()),
       ],
       child: WeddingApp(),
     ),
@@ -32,7 +36,8 @@ class WeddingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<LocaleProvider>(
-      builder: (context, localeProvider, child) => MaterialApp(
+      builder: (context, localeProvider, child) => MaterialApp.router(
+        routerConfig: appRouter,
         locale: localeProvider.locale,
         supportedLocales: const [Locale('it'), Locale('es'), Locale('uk')],
         localizationsDelegates: const [
@@ -48,7 +53,6 @@ class WeddingApp extends StatelessWidget {
           useMaterial3: true,
           textTheme: GoogleFonts.montserratTextTheme(),
         ),
-        home: WeddingHomePage(),
       ),
     );
   }

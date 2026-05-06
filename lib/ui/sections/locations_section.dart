@@ -51,7 +51,7 @@ class LocationsSection extends StatelessWidget {
             child: LocationCard(
               title: AppLocalizations.tr(context, 'venue'),
               place: "La Porta del Principe",
-              address: "Via della Muratella Mezzana, Roma",
+              address: "Via Portuense, 1585, 00148 Roma RM",
               imgAsset: "assets/images/location2.png",
               isReversed: true,
               size: size,
